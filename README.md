@@ -12,4 +12,6 @@
 * Grid Layout
 * Адаптивность
 
+Ссылка на проект: https://kihaku565.github.io/russian-travel/
+
 to be continued...
