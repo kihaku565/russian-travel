@@ -1,0 +1,60 @@
+.cover__overlay {
+    /* нужно, чтобы подложка с position: absolute корректно позиционировалась */
+    position: relative;
+    /* нужно, чтобы порядок "слоев" в браузере был верный: "внизу" фоновая картинка, потом подложка, а "сверху" - текст */
+    /* значение z-index может быть любое (попробуйте поэксперементировать), но принципиально важно, чтобы оно было задано */
+    z-index: 1;
+    /* т.к. background-size: cover Масштабирует изображение,
+    чтобы его w или h = w или h блока*/
+    min-height: 740px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    background-image: url(../../../images/cover-trains.jpg);
+    background-size: cover;
+    text-decoration: none;
+}
+
+.cover__overlay::before {
+    /* псевдоблок без содержимого не будет отображаться */
+    /* '' означает пустую строку */
+    content: '';
+    /* "растянем" элемент по сторонам */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* это нужно, чтобы подложка оказалась под текстом, а не над ним */
+    z-index: -1;
+    background-color: #2a2c2f;
+    opacity: 0.3;
+    /* анимация этого свойства гораздо менее ресурсоемкая, 
+    чем анимация background-*, поэтому в таком случае она выйдет максимально плавной */
+    transition: opacity 350ms ease;
+}
+
+.cover__overlay:hover::before {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 1024px) {
+    .cover__overlay {
+        min-height: 640px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cover__overlay {
+        min-height: 480px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .cover__overlay {
+        min-height: 200px;
+        gap: 16px;
+    }
+}
