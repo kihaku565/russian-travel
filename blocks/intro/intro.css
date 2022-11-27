@@ -1,4 +1,5 @@
 .intro {
+    margin-right: 24px;
     margin-left: 148px;
     display: flex;
     flex-direction: column;
@@ -15,7 +16,8 @@
 @media screen and (max-width: 768px) {
     .intro {
         margin-left: 24px;
-        max-width: 720px;
+        /* x = (y - y_1) / (y_2 - y_1) * (x_2 - x_1) + x_1 */
+        max-width: calc((100vh - 208px) / (520 - 208) * (720 - 288) + 288px);
     }
 
 }
