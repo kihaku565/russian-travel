@@ -1,6 +1,7 @@
 .header__lang-links {
     margin: 0;
     padding-left: 0;
+    padding-bottom: 4.5px;
     display: flex;
     align-items: center;
     gap: 18px;
